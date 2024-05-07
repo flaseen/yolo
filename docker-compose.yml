@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+
+  node:
+    container_name: node-mongo-ecomm
+    image: yakub/node-mongo-ecomm:1.0
+    build:
+      context: .
+      dockerfile: node.dockerfile
+    ports:
+      - "3000:3000"
