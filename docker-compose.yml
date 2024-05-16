@@ -5,27 +5,27 @@ services:
     build:
       context: ./client 
       dockerfile: Dockerfile
-    container_name: e-comm_frontend
+    container_name: node-frontend
     ports:
       - "3000:3000"
     networks:
       - network_bridge
-    image: yakub/e-comm_frontend:latest
+    image: yakub/node-frontend:latest
 
   backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: e-comm_backend
+    container_name: node-backend
     ports:
       - "5000:5000"
     networks:
       - network_bridge
-    image: yakub/e-comm_backend:latest
+    image: yakub/node-backend:latest
 
   database:
     image: mongo:latest
-    container_name: e-comm_mongo-db
+    container_name: mongo-db
     environment:
       - MONGODB_URI=${MONGODB_URI}
     ports:
@@ -33,7 +33,7 @@ services:
 
     networks:
       - network_bridge
-
+      
 networks:
   network_bridge:
     driver: bridge      
