@@ -1,12 +1,39 @@
-version: '2'
+version: "3.8"
 
 services:
-
-  node:
-    container_name: node-mongo-ecomm
-    image: yakub/node-mongo-ecomm:1.0
+  client:
     build:
-      context: .
-      dockerfile: node.dockerfile
+      context: ./client 
+      dockerfile: Dockerfile
+    container_name: e-comm_frontend
     ports:
       - "3000:3000"
+    networks:
+      - network_bridge
+    image: yakub/e-comm_frontend:latest
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: e-comm_backend
+    ports:
+      - "5000:5000"
+    networks:
+      - network_bridge
+    image: yakub/e-comm_backend:latest
+
+  database:
+    image: mongo:latest
+    container_name: e-comm_mongo-db
+    environment:
+      - MONGODB_URI=${MONGODB_URI}
+    ports:
+      - "27017:27017"
+
+    networks:
+      - network_bridge
+
+networks:
+  network_bridge:
+    driver: bridge      
