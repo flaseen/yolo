@@ -1,39 +1,48 @@
-version: "3.8"
+version: "3.7"
 
 services:
   client:
-    build:
-      context: ./client 
-      dockerfile: Dockerfile
-    container_name: node-frontend
+    container_name: yolo-e-comm-frontend
+    build: ./client
+    stdin_open: true
+    tty: true
     ports:
       - "3000:3000"
+    volumes:
+      - ./client:/app
     networks:
-      - network_bridge
-    image: yakub/node-frontend:latest
+      - my-network
+    depends_on:
+      - backend
 
   backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
-    container_name: node-backend
+    container_name: yolo-e-comm-backend
+    build: ./backend
     ports:
       - "5000:5000"
+    volumes:
+      - ./backend:/app
+    environment:
+      - mongodb_url=mongodb://127.0.0.1:27017
     networks:
-      - network_bridge
-    image: yakub/node-backend:latest
+      - my-network
+    depends_on:
+      - database
 
   database:
     image: mongo:latest
     container_name: mongo-db
-    environment:
-      - MONGODB_URI=${MONGODB_URI}
     ports:
       - "27017:27017"
-
+    volumes:
+      - ./data:/data/db
     networks:
-      - network_bridge
-      
+      - my-network
+
+volumes:
+  data:
+
+
 networks:
-  network_bridge:
-    driver: bridge      
+  my-network:
+    driver: bridge
