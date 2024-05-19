@@ -22,20 +22,20 @@ Make sure that you have the following installed:
 
  ### Go ahead and add a product (note that the price field only takes a numeric input)
 
-# Docker Compose
+# Containerizing the App using Docker
  1. Clone the repository
 
  2. Ensure that you have docker installed
 
- ## To run all the services at once you can use 
+ ## Running all the services at once
     `docker-compose up`
      
    All the containers will be up and running
 
- ##   To access the fronted 
+ ##   To access the front-end 
     'http://localhost:3000/' 
-   Use this link to access the fronted.
-  ## sample fronted image
+   Use this link to access the front-end application.
+  ## sample App screenshots
 
    ![alt text](yolo.png)
    ![alt text](yolo-2.png)

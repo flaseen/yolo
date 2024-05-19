@@ -2,6 +2,7 @@ version: "3.7"
 
 services:
   client:
+    #image: ymwambeyu/yolo-frontend:v1.0.0
     container_name: yolo-e-comm-frontend
     build: ./client
     stdin_open: true
@@ -16,6 +17,7 @@ services:
       - backend
 
   backend:
+    #image: ymwambeyu/yolo-backend:v1.0.0
     container_name: yolo-e-comm-backend
     build: ./backend
     ports:
