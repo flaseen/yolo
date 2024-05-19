@@ -2,9 +2,9 @@ version: "3.7"
 
 services:
   client:
-    #image: ymwambeyu/yolo-frontend:v1.0.0
+    image: ymwambeyu/yolo-frontend:v1.0.0
     container_name: yolo-e-comm-frontend
-    build: ./client
+    #build: ./client
     stdin_open: true
     tty: true
     ports:
@@ -17,9 +17,9 @@ services:
       - backend
 
   backend:
-    #image: ymwambeyu/yolo-backend:v1.0.0
+    image: ymwambeyu/yolo-backend:v1.0.0
     container_name: yolo-e-comm-backend
-    build: ./backend
+    #build: ./backend
     ports:
       - "5000:5000"
     volumes:
