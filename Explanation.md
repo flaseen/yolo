@@ -40,6 +40,6 @@ This helps in retaining data & files even when the containers are stopped or rem
         - Volume is created & mounted to the '/app' directories inside the yolo-e-comm-backend container.
 
 ## Running the Application
-- Clone this repo 
+- Clone this repository
 - run 'docker-compose up' to set the containers up and running.
 - access the application at 'http://localhost:3000/'
