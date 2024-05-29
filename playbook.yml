@@ -3,8 +3,11 @@
   become: true
   vars:
     repo_url: https://github.com/flaseen/yolo.git
-    user: flaseen
+    user: ubuntu
     dest: /home/{{ user }}/yolo
 
   roles:
     - connectivity-test
+    - updating-server
+    - installing-docker
+    - cloning-repo
