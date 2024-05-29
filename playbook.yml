@@ -1,0 +1,13 @@
+- name: 
+  hosts: all
+  become: true
+  vars:
+    repo_url: https://github.com/flaseen/yolo.git
+    user: flaseen
+    dest: /home/{{ user }}/yolo
+  roles:
+    - test-connectivity
+    - update-server
+    - install-docker
+    - clone-repo
+    - deploy-containers
