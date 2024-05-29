@@ -43,3 +43,28 @@ This helps in retaining data & files even when the containers are stopped or rem
 - Clone this repository
 - run 'docker-compose up' to set the containers up and running.
 - access the application at 'http://localhost:3000/'
+
+
+# Terraform
+
+## Task 1: Initialize Terraform
+```yaml
+
+   terraform init
+```
+
+The shell module runs terraform init to initialize a Terraform working directory
+
+## Task 2: Apply Terraform
+```yaml
+terraform plan
+terraform apply -auto-approve
+  
+```
+
+### Roles on playbook.yml
+ - Testing server connectivity
+ - Updating and upgrading server
+ - Installing docker and dependencies
+ - Cloning the repo
+ - running docker compose
