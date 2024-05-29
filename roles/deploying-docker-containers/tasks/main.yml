@@ -1,2 +1,14 @@
 ---
 # tasks file for deploying-docker-containers
+- name: Install pip dependencies
+  ansible.builtin.pip:
+    name:
+      - docker<7
+      - docker-compose
+      
+- name: Deploying Containers
+  community.docker.docker_compose_v2:
+    project_src: /home/{{ user }}/yolo
+    files:
+      - "/home/{{ user }}/yolo/docker-compose.yml"
+    remove_orphans: true

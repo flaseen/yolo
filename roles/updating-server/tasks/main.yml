@@ -1,2 +1,6 @@
 ---
 # tasks file for updating-server
+- name: Update and upgrade server
+  become: true
+  apt:
+    update_cache: yes

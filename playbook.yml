@@ -3,7 +3,7 @@
   become: true
   vars:
     repo_url: https://github.com/flaseen/yolo.git
-    user: ubuntu
+    user: developer
     dest: /home/{{ user }}/yolo
 
   roles:
