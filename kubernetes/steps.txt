@@ -1,0 +1,9 @@
+
+kubectl apply -f storage-class.yaml -- creating a custom storage class
+kubectl apply -f mongo-persistent-vol.yaml -- creating a persistent volume using custom-defined storage class
+kubectl apply -f mongo-persistent-vol-claim.yaml -- creating a persistent volume claim using custom-defined storage class
+
+mongo-db-manifest.yaml -- deploying mongodb
+
+kubectl apply -f back-end-manifest.yaml -- deploying back-end app
+kubectl apply -f front-end-manifest.yaml -- deploying front-end app
